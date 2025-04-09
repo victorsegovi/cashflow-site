@@ -180,7 +180,7 @@ export default function HomePage() {
             </div>
           </div>
   
-          <section className="text-center py-4 rounded-lg mx-4 w-full">
+          <section className="text-center py-4 rounded-lg mx-4 w-full flex justify-center">
             <p className="text-[#EE6055] font-light">Afirmación del día:</p>
             <h3 className="text-[#EE6055] font-bold text-sm p-4 border-[#EE6055] border-2 rounded-full w-2/3 justify-self-center">{dailyAffirmation}</h3>
           </section>
@@ -307,7 +307,7 @@ export default function HomePage() {
           </div>
         </div>
   
-        <section className="text-center py-4 rounded-lg mx-4 w-full">
+        <section className="text-center py-4 rounded-lg mx-4 w-full flex justify-center">
           <p className="text-[#EE6055] font-light">Afirmación del día:</p>
           <h3 className="text-[#EE6055] font-bold text-sm p-4 border-[#EE6055] border-2 rounded-full w-2/3 justify-self-center">{dailyAffirmation}</h3>
         </section>
