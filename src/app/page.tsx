@@ -37,6 +37,7 @@ export default function HomePage() {
     const data = await response.json();
     setOrderID(data.id);
     console.log("orderId set to:", data.id);
+    console.log(orderId)
   };
 
   useEffect(() => {
