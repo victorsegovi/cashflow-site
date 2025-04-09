@@ -17,7 +17,7 @@ export async function POST(req) {
     console.log(email, password)
     
     // Insert into Supabase
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("cashflow-db")
       .insert([{ email, password: hashedPassword }]);
 

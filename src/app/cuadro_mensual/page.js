@@ -29,13 +29,10 @@ export default function CuadroMensual() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div
-      className="w-screen min-h-screen bg-[#F2F7DF] text-[#1F4C1A]"
+      className="min-h-screen bg-[#F2F7DF] text-[#1F4C1A]"
       style={{ fontFamily: "var(--font-red-hat-text)" }}
     >
       <div className="bg-[#F2F7DF] sticky top-0 z-[1000]">
-        <header className="bg-[#EE6055] text-[#F2F7DF] text-center p-2 text-sm font-bold rounded-b-3xl">
-          Te quedan solo 00:00 minutos para aprovechar nuestra gran oferta
-        </header>
 
         <div className="flex justify-between items-center p-4 bg-[#f2f7df]">
           <FaBars
@@ -51,7 +48,9 @@ export default function CuadroMensual() {
               window.open("/", "_self");
             }}
           />
-          <BsCart2 className="text-[#EE6055] text-2xl" />
+          <BsCart2 className="text-[#EE6055] text-2xl" onClick={()=>{
+            router.push("../cart")
+          }}/>
 
           <div
             className={`absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 ${
@@ -71,22 +70,24 @@ export default function CuadroMensual() {
           </div>
         </div>
       </div>
-      <div className="p-4 h-full flex flex-col justify-center gap-4">
+      <div className="p-4 h-full flex flex-col justify-around gap-4 w-full items-center lg:flex-row-reverse">
         <img
           src="./thumb-up.png"
           alt="Pulgar arriba, color verde"
-          className="w-1/2 self-center"
+          className="w-1/2 max-w-[300px] self-center"
         />
+        <div className="lg:w-[400px]">
         <h1
           style={{ fontFamily: "var(--font-literata)" }}
-          className="font-bold text-2xl"
+          className="font-bold text-2xl lg:text-4xl"
         >
           ¡Gracias por descargar nuestro cuadro mensual!
         </h1>
-        <p>
+        <p className="lg:text-xl">
           Este es el primer paso a una vida financiera más estable, esperamos lo
           disfrutes.
         </p>
+        </div>
       </div>
     </div>
   );

@@ -73,6 +73,8 @@ export default function OrdersPage() {
                     const updatedState = { ...prevState, [order.order_id]: true };
                     // Save the updated state to localStorage
                     localStorage.setItem("paidOrders", JSON.stringify(updatedState));
+                    console.log(data)
+                    console.log(details)
                     return updatedState;
                   });
 
@@ -118,9 +120,6 @@ export default function OrdersPage() {
       return (
         <div className="bg-[#F2F7DF] flex flex-col ">
           <div className="bg-[#F2F7DF] sticky top-0 z-[1000] w-full">
-            <header className="bg-[#EE6055] text-[#F2F7DF] text-center p-2 text-sm font-bold rounded-b-3xl">
-              Te quedan solo 00:00 minutos para aprovechar nuestra gran oferta
-            </header>
 
             <div className="flex justify-between items-center p-4 bg-[#f2f7df]">
               <FaBars
@@ -159,7 +158,7 @@ export default function OrdersPage() {
               </div>
             </div>
           </div>
-          <div className="min-h-screen flex gap-4 p-4 justify-center items-center">
+          <div className="min-h-screen flex gap-4 p-4 justify-center items-center flex-wrap">
             {orders.length > 0 ? (
               orders.map((order) => (
                 <div
@@ -226,9 +225,6 @@ export default function OrdersPage() {
       return (
         <div className="bg-[#F2F7DF] flex flex-col ">
           <div className="bg-[#F2F7DF] sticky top-0 z-[1000] w-full">
-            <header className="bg-[#EE6055] text-[#F2F7DF] text-center p-2 text-sm font-bold rounded-b-3xl">
-              Te quedan solo 00:00 minutos para aprovechar nuestra gran oferta
-            </header>
 
             <div className="flex justify-between items-center p-4 bg-[#f2f7df]">
               <FaBars
