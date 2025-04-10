@@ -5,8 +5,9 @@ import Image from "next/image";
 import { FaBars } from "react-icons/fa6";
 import { BsCart2 } from "react-icons/bs";
 import { useRouter } from "next/navigation";
-import { signOut, signIn, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { loadScript } from "@paypal/paypal-js";
+import Link from "next/link";
 
 export default function OrdersPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -146,7 +147,7 @@ export default function OrdersPage() {
                   menuOpen ? "top-0" : "-top-[400vh]"
                 }`}
               >
-                <a href="/" className="text-[#1F4C1A]">Inicio</a>
+                <Link href={"/"} className="text-[#1F4C1A]">Inicio</Link>
                 <button onClick={() => signOut()} className="text-[#1F4C1A]">
                   Cerrar Sesión
                 </button>
@@ -251,7 +252,7 @@ export default function OrdersPage() {
                   menuOpen ? "top-0" : "-top-[400vh]"
                 }`}
               >
-              <a href="/" className="text-[#1f4c1a] block">Inicio</a>
+              <Link href={"/"} className="text-[#1f4c1a] block">Inicio</Link>
               <a href="/login" className="text-[#1F4C1A] block">Iniciar Sesión</a>
               <a href="/register" className="text-[#1F4C1A]">Regístrate</a>
                 <button

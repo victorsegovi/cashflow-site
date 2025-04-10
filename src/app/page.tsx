@@ -7,6 +7,7 @@ import { BsCart2 } from "react-icons/bs";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import financialAffirmations from "@/constants/affirmations/affirmations";
+import Link from "next/link";
 
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -175,7 +176,7 @@ export default function HomePage() {
                 {newOrder > 0 ? <h6 className="absolute -top-1 -right-2 bg-[#EE6055] rounded-full w-4 h-4 flex items-center justify-center text-[10px]">{newOrder}</h6> : null}
               </div>
               <div className={`absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 flex flex-col items-center justify-center gap-4 ${menuOpen ? "top-0" : "-top-[400vh]"}`}>
-                <a href="/" className="text-[#1F4C1A]">Inicio</a>
+                <Link href={"/"} className="text-[#1F4C1A]">Inicio</Link>
                 <button onClick={() => signOut()} className="text-[#1F4C1A]">Cerrar Sesión</button>
                 <button className="text-[#EE6055] text-5xl absolute top-2 right-4" onClick={() => setMenuOpen(false)}>&times;</button>
               </div>
@@ -311,7 +312,7 @@ export default function HomePage() {
             <BsCart2 className="text-[#EE6055] text-2xl cursor-pointer" onClick={() => router.push('/cart')} />
   
             <div className={`absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 flex flex-col gap-4 items-center justify-center ${menuOpen ? "top-0" : "-top-[400vh]"}`}>
-              <a href="/" className="text-[#1f4c1a] block">Inicio</a>
+              <Link href={"/"} className="text-[#1f4c1a] block">Inicio</Link>
               <a href="/login" className="text-[#1F4C1A] block">Iniciar Sesión</a>
               <a href="/register" className="text-[#1F4C1A]">Regístrate</a>
               <button className="text-[#EE6055] text-5xl absolute top-2 right-4" onClick={() => setMenuOpen(false)}>&times;</button>
