@@ -142,10 +142,11 @@ export default function OrdersPage() {
               />
 
               <div
-                className={`absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 ${
+                className={`flex flex-col justify-center items-center gap-4 absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 ${
                   menuOpen ? "top-0" : "-top-[400vh]"
                 }`}
               >
+                <a href="/" className="text-[#1F4C1A]">Inicio</a>
                 <button onClick={() => signOut()} className="text-[#1F4C1A]">
                   Cerrar Sesión
                 </button>
@@ -246,13 +247,13 @@ export default function OrdersPage() {
               />
 
               <div
-                className={`absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 ${
+                className={`flex flex-col items-center justify-center gap-4 absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 ${
                   menuOpen ? "top-0" : "-top-[400vh]"
                 }`}
               >
-                <button onClick={() => signIn()} className="text-[#1F4C1A]">
-                  Iniciar Sesión
-                </button>
+              <a href="/" className="text-[#1f4c1a] block">Inicio</a>
+              <a href="/login" className="text-[#1F4C1A] block">Iniciar Sesión</a>
+              <a href="/register" className="text-[#1F4C1A]">Regístrate</a>
                 <button
                   className="text-[#EE6055] text-5xl absolute top-2 right-4"
                   onClick={() => setMenuOpen(false)}

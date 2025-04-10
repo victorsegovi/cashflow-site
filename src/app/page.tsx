@@ -21,6 +21,7 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true)
   const [newOrder, setNewOrder] = useState(0);
 
+
   const handleClickCart = () => {
     setNewOrder(0);
     router.push("/cart");
@@ -100,7 +101,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const COUNTDOWN_KEY = 'offerCountdown';
-    const INITIAL_TIME = 2 * 60 * 60; // 2 hours in seconds
+    const INITIAL_TIME = 30 * 60; // 1/2 hours in seconds
 
     const getInitialTime = (): number => {
       const storedTime = localStorage.getItem(COUNTDOWN_KEY);
@@ -173,7 +174,8 @@ export default function HomePage() {
                 <BsCart2 className="text-[#EE6055] text-2xl cursor-pointer" onClick={handleClickCart} />
                 {newOrder > 0 ? <h6 className="absolute -top-1 -right-2 bg-[#EE6055] rounded-full w-4 h-4 flex items-center justify-center text-[10px]">{newOrder}</h6> : null}
               </div>
-              <div className={`absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 ${menuOpen ? "top-0" : "-top-[400vh]"}`}>
+              <div className={`absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 flex flex-col items-center justify-center gap-4 ${menuOpen ? "top-0" : "-top-[400vh]"}`}>
+                <a href="/" className="text-[#1F4C1A]">Inicio</a>
                 <button onClick={() => signOut()} className="text-[#1F4C1A]">Cerrar Sesión</button>
                 <button className="text-[#EE6055] text-5xl absolute top-2 right-4" onClick={() => setMenuOpen(false)}>&times;</button>
               </div>
@@ -184,7 +186,8 @@ export default function HomePage() {
             <p className="text-[#EE6055] font-light w-full">Afirmación del día:</p>
             <h3 className="text-[#EE6055] font-bold text-sm p-4 border-[#EE6055] border-2 rounded-full w-2/3 justify-self-center">{dailyAffirmation}</h3>
           </section>
-  
+
+
           <section className="bg-[#1F4C1A] text-[#F2F7DF] rounded-3xl p-6 mx-4 my-6 max-w-[400px] relative overflow-hidden hover:scale-105 transition-all duration-700 lg:h-[690px] lg:flex lg:flex-col">
             <div className={`modal text-[#F2F7DF] absolute transition-all duration-[1500ms] z-10 w-full h-full bg-[#1F4C1A] top-0 rounded-3xl ${isModalOpen ? "left-0" : "left-full"}`}>
               <div className="modal-content flex flex-col justify-center items-center w-full h-full p-4 gap-4">
@@ -204,7 +207,7 @@ export default function HomePage() {
             </div>
             <img src="./cuadro-mensual.jpg" className="rounded-3xl mb-4" alt="Cuadro Mensual" />
             <h2 className="text-xl font-bold" style={{ fontFamily: 'var(--font-literata)' }}>Cuadro Mensual</h2>
-            <p className="mt-2"><del className="text-gray-400">$5.00</del> <strong className="text-[#F2F7DF]">Precio ahora: GRATIS!</strong></p>
+            <p className="mt-2"><del className="text-gray-400">$5.00</del> <strong className="text-[#F2F7DF] text-2xl "><span className="text-base font-medium">Precio ahora:</span> GRATIS!</strong></p>
             <ul className="list-disc ml-6 mt-4">
               <li>Presupuesto Mensual</li>
               <li>Clasificación de Gastos</li>
@@ -219,7 +222,7 @@ export default function HomePage() {
           <section className="bg-[#1F4C1A] text-[#F2F7DF] rounded-3xl p-6 mx-4 my-6 max-w-[400px] hover:scale-105 transition-all duration-700 lg:h-[690px] lg:flex lg:flex-col">
             <img src="./cuadro-anual.jpg" className="rounded-3xl mb-4 border" alt="Cuadro Anual" />
             <h2 className="text-xl font-bold" style={{ fontFamily: 'var(--font-literata)' }}>Cuadro Anual</h2>
-            <p className="mt-2"><del className="text-gray-400">$10.00</del> <strong className="text-[#F2F7DF]">Precio ahora: $5.00</strong></p>
+            <p className="mt-2"><del className="text-gray-400">$10.00</del> <strong className="text-[#F2F7DF] text-2xl"><span className="text-base font-medium">Precio ahora:</span> $5.00</strong></p>
             <ul className="list-disc ml-6 mt-4">
               <li>Presupuesto Mensual</li>
               <li>Clasificación de Gastos</li>
@@ -234,7 +237,13 @@ export default function HomePage() {
               <li className="font-bold">Calculadora de montos de libre uso</li>
               <li className="font-bold">Calculadora de sistema cambiario</li>
             </ul>
-            <button className="bg-[#F2F7DF] text-[#1F4C1A] font-bold py-3 px-4 rounded-xl  mt-4 w-full" onClick={createOrder}>¡Me lo llevo!</button>
+            <button className="bg-[#F2F7DF] text-[#1F4C1A] font-bold py-3 px-4 rounded-xl  mt-4 w-full" onClick={()=>{
+              if(newOrder == 0){
+                createOrder()
+              }else{
+                return null
+              }
+            }}>{newOrder > 0? "¡Añadido al carrito!": "¡Me lo llevo!"}</button>
           </section>
   
           <section className="bg-[#1F4C1A] text-[#F2F7DF] rounded-3xl p-6 mx-4 my-6 max-w-[400px] hover:scale-105 transition-all duration-700 lg:h-[690px] lg:flex lg:flex-col">
@@ -257,6 +266,7 @@ export default function HomePage() {
             </ul>
             <button className="bg-[#F2F7DF] text-[#1F4C1A] font-bold py-3 px-4 rounded-xl mt-4 w-full">¡Preventa!</button>
           </section>
+
   
           <section className="bg-[#D0E562] text-[#14280C] p-6 mt-6 rounded-t-[7rem] flex flex-col">
             <img src="./asset-phone.png" className="max-w-[200px] self-center" alt="" />
@@ -300,8 +310,10 @@ export default function HomePage() {
             <Image src="/logotipo-verde.svg" width={150} height={50} alt="Logotipo" />
             <BsCart2 className="text-[#EE6055] text-2xl cursor-pointer" onClick={() => router.push('/cart')} />
   
-            <div className={`absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 ${menuOpen ? "top-0" : "-top-[400vh]"}`}>
-              <a href="/login" className="text-[#1F4C1A]">Iniciar Sesión</a>
+            <div className={`absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 flex flex-col gap-4 items-center justify-center ${menuOpen ? "top-0" : "-top-[400vh]"}`}>
+              <a href="/" className="text-[#1f4c1a] block">Inicio</a>
+              <a href="/login" className="text-[#1F4C1A] block">Iniciar Sesión</a>
+              <a href="/register" className="text-[#1F4C1A]">Regístrate</a>
               <button className="text-[#EE6055] text-5xl absolute top-2 right-4" onClick={() => setMenuOpen(false)}>&times;</button>
             </div>
           </div>
@@ -311,11 +323,12 @@ export default function HomePage() {
           <p className="text-[#EE6055] font-light w-full">Afirmación del día:</p>
           <h3 className="text-[#EE6055] font-bold text-sm p-4 border-[#EE6055] border-2 rounded-full w-2/3 justify-self-center">{dailyAffirmation}</h3>
         </section>
-  
+
+
         <section className="bg-[#1F4C1A] text-[#F2F7DF] rounded-3xl p-6 mx-4 my-6 max-w-[400px] relative overflow-hidden hover:scale-105 transition-all duration-700 lg:h-[690px] lg:flex lg:flex-col">
           <img src="./cuadro-mensual.jpg" className="rounded-3xl mb-4" alt="Cuadro Mensual" />
           <h2 className="text-xl font-bold" style={{ fontFamily: 'var(--font-literata)' }}>Cuadro Mensual</h2>
-          <p className="mt-2"><del className="text-gray-400">$5.00</del> <strong className="text-[#F2F7DF]">Precio ahora: GRATIS!</strong></p>
+          <p className="mt-2"><del className="text-gray-400">$5.00</del> <strong className="text-[#F2F7DF] text-2xl"><span className="text-base font-medium">Precio ahora:</span> GRATIS!</strong></p>
           <ul className="list-disc ml-6 mt-4">
             <li>Presupuesto Mensual</li>
             <li>Clasificación de Gastos</li>
@@ -332,7 +345,7 @@ export default function HomePage() {
         <section className="bg-[#1F4C1A] text-[#F2F7DF] rounded-3xl p-6 mx-4 my-6 max-w-[400px] hover:scale-105 transition-all duration-700 lg:h-[690px] lg:flex lg:flex-col">
           <img src="./cuadro-anual.jpg" className="rounded-3xl mb-4 border" alt="Cuadro Anual" />
           <h2 className="text-xl font-bold" style={{ fontFamily: 'var(--font-literata)' }}>Cuadro Anual</h2>
-          <p className="mt-2"><del className="text-gray-400">$10.00</del> <strong className="text-[#F2F7DF]">Precio ahora: $5.00</strong></p>
+          <p className="mt-2"><del className="text-gray-400">$10.00</del> <strong className="text-[#F2F7DF] text-2xl"><span className="text-base font-medium">Precio ahora:</span> $5.00</strong></p>
           <ul className="list-disc ml-6 mt-4">
             <li>Presupuesto Mensual</li>
             <li>Clasificación de Gastos</li>
@@ -370,7 +383,10 @@ export default function HomePage() {
           </ul>
           <button className="bg-[#F2F7DF] text-[#1F4C1A] font-bold py-3 px-4 rounded-xl mt-4 w-full">¡Preventa!</button>
         </section>
-  
+
+
+
+
         <section className="bg-[#D0E562] text-[#14280C] p-6 mt-6 rounded-t-[7rem] flex flex-col">
           <img src="./asset-phone.png" className="max-w-[200px] self-center" alt="" />
           <h2 className="text-2xl font-bold text-[#1F4C1A] italic" style={{ fontFamily: 'var(--font-literata)' }}>¡Próximamente!</h2>
