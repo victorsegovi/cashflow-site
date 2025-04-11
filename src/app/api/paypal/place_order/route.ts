@@ -30,7 +30,7 @@ export async function POST() {
     const auth = Buffer.from(`${paypalClientId}:${paypalSecret}`).toString("base64");
 
     // Fetch PayPal order creation API
-    const response = await fetch("https://api-m.sandbox.paypal.com/v2/checkout/orders", {
+    const response = await fetch("https://api-m.paypal.com/v2/checkout/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
