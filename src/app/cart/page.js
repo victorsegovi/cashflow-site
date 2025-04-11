@@ -165,7 +165,7 @@ export default function OrdersPage() {
     } else {
       return (
         
-        <div className="bg-[#F2F7DF] flex flex-col ">
+        <div className="bg-[#F2F7DF] flex flex-col items-center lg:flex-row lg:flex-wrap justify-center" style={{ fontFamily: 'var(--font-red-hat-text)' }}>
                             {showConfirmModal && (
                     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[2000]">
                       <div className="bg-white p-6 rounded-xl shadow-lg text-center max-w-sm">
@@ -192,29 +192,22 @@ export default function OrdersPage() {
                       </div>
                     </div>
                   )}
-          <div className="bg-[#F2F7DF] sticky top-0 z-[1000] w-full">
-            <div className="flex justify-between items-center p-4 bg-[#f2f7df]">
+          <div className="bg-[#F2F7DF] sticky top-0 z-[1000] w-full flex items-center justify-center flex-col">
+            <div className="flex justify-between items-center p-4 bg-[#f2f7df] max-w-[2000px] w-full 2xl:text-4xl 2xl:p-16">
               <FaBars
-                className="text-[#EE6055] text-2xl cursor-pointer"
+                className="text-[#EE6055] text-2xl 2xl:text-4xl cursor-pointer"
                 onClick={() => setMenuOpen(!menuOpen)}
               />
-              <Image
-                src="/logotipo-verde.svg"
-                width={150}
-                height={50}
-                alt="Logotipo"
-                onClick={() => {
-                  router.push("/"); // Navigate to home page
-                }}
-                className="cursor-pointer"
-              />
+            <img src="/logotipo-verde.svg" width={150} height={50} className="2xl:w-[300px]" alt="Logotipo" onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            }} />
               <BsCart2
-                className="text-[#EE6055] text-2xl cursor-pointer"
+                className="text-[#EE6055] text-2xl 2xl:text-4xl cursor-pointer"
                 onClick={() => router.push("/cart")}
               />
 
               <div
-                className={`flex flex-col justify-center items-center gap-4 absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 ${
+                className={`absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 flex flex-col gap-4 items-center justify-center ${
                   menuOpen ? "top-0" : "-top-[400vh]"
                 }`}
               >
@@ -225,7 +218,7 @@ export default function OrdersPage() {
                   Cerrar Sesión
                 </button>
                 <button
-                  className="text-[#EE6055] text-5xl absolute top-2 right-4"
+                  className="text-[#EE6055] text-5xl 2xl:text-8xl absolute top-2 right-4 2xl:top-16 2xl:right-16"
                   onClick={() => setMenuOpen(false)}
                 >
                   &times;
@@ -312,29 +305,23 @@ export default function OrdersPage() {
       );
     } else {
       return (
-        <div className="bg-[#F2F7DF] flex flex-col ">
-          <div className="bg-[#F2F7DF] sticky top-0 z-[1000] w-full">
-            <div className="flex justify-between items-center p-4 bg-[#f2f7df]">
+        <div className="bg-[#F2F7DF] flex flex-col items-center lg:flex-row lg:flex-wrap justify-center" style={{ fontFamily: 'var(--font-red-hat-text)' }}>
+          <div className="bg-[#F2F7DF] sticky top-0 z-[1000] w-full flex items-center justify-center flex-col">
+            <div className="flex justify-between items-center p-4 bg-[#f2f7df] max-w-[2000px] w-full 2xl:text-4xl 2xl:p-16">
               <FaBars
-                className="text-[#EE6055] text-2xl cursor-pointer"
+                className="text-[#EE6055] text-2xl 2xl:text-4xl cursor-pointer"
                 onClick={() => setMenuOpen(!menuOpen)}
               />
-              <Image
-                src="/logotipo-verde.svg"
-                width={150}
-                height={50}
-                alt="Logotipo"
-                onClick={() => {
-                  router.push("/"); // Navigate to home page
-                }}
-              />
+            <img src="/logotipo-verde.svg" width={150} height={50} className="2xl:w-[300px]" alt="Logotipo" onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            }} />
               <BsCart2
-                className="text-[#EE6055] text-2xl cursor-pointer"
+                className="text-[#EE6055] text-2xl 2xl:text-4xl cursor-pointer"
                 onClick={() => router.push("/cart")}
               />
 
               <div
-                className={`flex flex-col items-center justify-center gap-4 absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 ${
+                className={`absolute left-0 p-4 w-full h-screen bg-[#F2F7DF] transition-all duration-1000 flex flex-col gap-4 items-center justify-center ${
                   menuOpen ? "top-0" : "-top-[400vh]"
                 }`}
               >
@@ -348,7 +335,7 @@ export default function OrdersPage() {
                   Regístrate
                 </a>
                 <button
-                  className="text-[#EE6055] text-5xl absolute top-2 right-4"
+                  className="text-[#EE6055] text-5xl 2xl:text-8xl absolute top-2 right-4 2xl:top-16 2xl:right-16"
                   onClick={() => setMenuOpen(false)}
                 >
                   &times;

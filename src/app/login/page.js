@@ -49,7 +49,7 @@ export default function LoginPage() {
       <div className="min-h-screen bg-[#F2F7DF] flex p-2 justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className="bg-white text-[#1F4C1A] p-6 rounded-lg shadow-md mb-4 flex flex-col justify-between items-center gap-4"
+          className="bg-white text-[#1F4C1A] p-6 rounded-lg shadow-md mb-4 flex flex-col justify-between items-center gap-4 2xl:scale-150"
         >
           <h1 className="mb-4 flex w-1/2">
             <img
