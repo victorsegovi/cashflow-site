@@ -265,7 +265,7 @@ export default function HomePage() {
                 <li className="font-bold">Calculadora de montos de libre uso</li>
                 <li className="font-bold">Calculadora de sistema cambiario</li>
               </ul>
-              <button className="bg-[#F2F7DF] text-[#1F4C1A] font-bold py-3 px-4 rounded-xl mt-4 w-full">¡Preventa!</button>
+              <button className="bg-[#F2F7DF] text-[#1F4C1A] font-bold py-3 px-4 rounded-xl mt-4 w-full" onClick={()=>router.push("/chatbot/preventa")}>¡Preventa!</button>
             </section>
           </section>
 
@@ -279,7 +279,7 @@ export default function HomePage() {
                 mensuales</strong> vía Whatsapp.<br /><br />
               Olvídate de abrir un archivo de Drive o un Excell.
               <strong> Nosotros nos encargamos con nuestro Chatbot.</strong></p>
-            <button className="bg-[#14280C] w-full text-[#F2F7DF] font-bold py-3 px-4 rounded-lg mt-4 max-w-[2000px] 2xl:text-4xl 2xl:p-6 2xl:w-2/3">¡Preventa!</button>
+            <button className="bg-[#14280C] w-full text-[#F2F7DF] font-bold py-3 px-4 rounded-lg mt-4 max-w-[2000px] 2xl:text-4xl 2xl:p-6 2xl:w-2/3" onClick={()=>router.push('/chatbot/preventa')}>¡Preventa!</button>
           </section>
         </div>
       );
@@ -384,7 +384,7 @@ export default function HomePage() {
               <li className="font-bold">Calculadora de montos de libre uso</li>
               <li className="font-bold">Calculadora de sistema cambiario</li>
             </ul>
-            <button className="bg-[#F2F7DF] text-[#1F4C1A] font-bold py-3 px-4 rounded-xl mt-4 w-full">¡Preventa!</button>
+            <button className="bg-[#F2F7DF] text-[#1F4C1A] font-bold py-3 px-4 rounded-xl mt-4 w-full" onClick={()=>router.push('/login')}>¡Preventa!</button>
           </section>
         </section>
 
@@ -398,7 +398,7 @@ export default function HomePage() {
               mensuales</strong> vía Whatsapp.<br /><br />
             Olvídate de abrir un archivo de Drive o un Excell.
             <strong> Nosotros nos encargamos con nuestro Chatbot.</strong></p>
-            <button className="bg-[#14280C] w-full text-[#F2F7DF] font-bold py-3 px-4 rounded-lg mt-4 max-w-[2000px] 2xl:text-4xl 2xl:p-6 2xl:w-2/3">¡Preventa!</button>
+            <button className="bg-[#14280C] w-full text-[#F2F7DF] font-bold py-3 px-4 rounded-lg mt-4 max-w-[2000px] 2xl:text-4xl 2xl:p-6 2xl:w-2/3" onClick={()=>router.push('/login')}>¡Preventa!</button>
         </section>
       </div>
     );
